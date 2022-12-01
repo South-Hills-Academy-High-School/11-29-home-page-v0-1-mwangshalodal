@@ -8,11 +8,13 @@ const server = http.createServer((req, res) => {
     fs.createReadStream('index.html').pipe(res)
   } else if(url ==='/favorites')  {
     fs.createReadStream('favorites.html').pipe(res)
+  } else if (url ==='/about') {
+    fs.createReadStream('about.html').pipe(res)
   } else {
     res.write('Doesn\'t exist'); 
     res.end(); 
   }
-  console.log("connected") 
+  console.log("connected")
 })
 
 server.listen(process.env.PORT || 80)
